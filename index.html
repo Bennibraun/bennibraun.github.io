@@ -34,6 +34,9 @@
 					<a href="https://scholar.google.com/citations?hl=en&user=7ihGq7IAAAAJ" target="_blank">
 						<img src="images/google_scholar.png" alt="Google Scholar" class="logo">
 					</a>
+					<a href="https://bsky.app/profile/ben-braun.bsky.social" target="_blank">
+						<img src="images/bluesky.png" alt="Bluesky" class="logo">
+					</a>
 				</p>
 			</header>
 			<section id="cv">
@@ -44,7 +47,9 @@
 			<section id="about">
 				<h2>About Me</h2>
 				<p>
-					I am a PhD student in the Department of Computer Science at the University of Colorado Boulder. I
+					I am a PhD student in the <a href="https://www.colorado.edu/cs/"><u>Department of Computer
+							Science</u></a> and <a href="https://www.colorado.edu/certificate/iqbiology/"><u>IQ
+							Biology</u></a> at the University of Colorado Boulder. I
 					work at the intersection of computing and biology with a focus on software for genomics and
 					bioinformatics. I am interested in developing tools to help biologists and clinicians analyze and
 					interpret large-scale biological data.
@@ -133,6 +138,11 @@
 		const canvas = document.getElementById('game-of-life');
 		const ctx = canvas.getContext('2d');
 
+		// Mouse position tracking variables
+		let mouseX = 0;
+		let mouseY = 0;
+		let isMouseOnCanvas = false;
+
 		function resizeCanvas() {
 			canvas.width = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
 			canvas.height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
@@ -153,11 +163,43 @@
 
 		let grid = buildGrid();
 		let previousGrids = [];
-		const gameSpeed = 50; // Game speed in milliseconds
+		const gameSpeed = 100; // Game speed in milliseconds
+
+		// Add mouse event listeners
+		canvas.addEventListener('mousemove', function (event) {
+			const rect = canvas.getBoundingClientRect();
+			mouseX = event.clientX - rect.left;
+			mouseY = event.clientY - rect.top;
+			isMouseOnCanvas = true;
+
+			// Convert mouse position to grid coordinates
+			const col = Math.floor(mouseX / resolution);
+			const row = Math.floor(mouseY / resolution);
+
+			// // Activate cells in a small radius around the mouse
+			// const radius = 2;
+			// for (let i = -radius; i <= radius; i++) {
+			// 	for (let j = -radius; j <= radius; j++) {
+			// 		const newCol = col + i;
+			// 		const newRow = row + j;
+			// 		if (newCol >= 0 && newRow >= 0 && newCol < COLS && newRow < ROWS) {
+			// 			// Use distance to create a more circular brush
+			// 			const distance = Math.sqrt(i * i + j * j);
+			// 			if (distance <= radius) {
+			// 				grid[newCol][newRow] = 1;
+			// 			}
+			// 		}
+			// 	}
+			// }
+			grid[col][row] = 1;
+		});
+
+		canvas.addEventListener('mouseout', function () {
+			isMouseOnCanvas = false;
+		});
 
 		function nextGen(grid) {
 			const nextGen = grid.map(arr => [...arr]);
-
 			for (let col = 0; col < grid.length; col++) {
 				for (let row = 0; row < grid[col].length; row++) {
 					const cell = grid[col][row];
@@ -169,14 +211,12 @@
 							}
 							const x_cell = col + i;
 							const y_cell = row + j;
-
 							if (x_cell >= 0 && y_cell >= 0 && x_cell < COLS && y_cell < ROWS) {
 								const currentNeighbor = grid[x_cell][y_cell];
 								numNeighbors += currentNeighbor;
 							}
 						}
 					}
-
 					if (cell === 1 && numNeighbors < 2) {
 						nextGen[col][row] = 0;
 					} else if (cell === 1 && numNeighbors > 3) {
@@ -194,10 +234,9 @@
 			for (let col = 0; col < grid.length; col++) {
 				for (let row = 0; row < grid[col].length; row++) {
 					const cell = grid[col][row];
-
 					ctx.beginPath();
 					ctx.rect(col * resolution, row * resolution, resolution, resolution);
-					ctx.fillStyle = cell ? '#0c1d1b' : 'black';
+					ctx.fillStyle = cell ? '#040b0b' : 'black';
 					ctx.fill();
 					ctx.stroke();
 				}
@@ -218,7 +257,6 @@
 		function update() {
 			const newGrid = nextGen(grid);
 			render(newGrid);
-
 			// Check for oscillation
 			if (previousGrids.length > 1 && gridsEqual(newGrid, previousGrids[previousGrids.length - 2])) {
 				grid = buildGrid(); // Reset the grid if oscillation is detected

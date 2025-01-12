@@ -1,51 +1,9 @@
-/* Headshot Styling */
-.headshot {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	object-fit: cover;
-	border: 2px solid #555;
-	/* Subtle dark border to match theme */
-}
-
-/* Email Box Styling */
-.email-box {
-	display: inline-flex;
-	align-items: center;
-	background-color: #1e1e1e;
-	/* Darker background for contrast */
-	border: 1px solid #333;
-	/* Subtle dark border */
-	padding: 5px 10px;
-	border-radius: 6px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-	/* Slightly stronger shadow */
-	font-size: 16px;
-	color: #e0e0e0;
-	/* Light text color for readability */
-	max-width: fit-content;
-}
-
-/* Email Link (Emoji) */
-.email-link {
-	margin-right: 4px;
-	text-decoration: none;
-	font-size: 18px;
-	cursor: pointer;
-	color: #76c7c0;
-	/* Teal for accent */
-}
-
-.email-link:hover {
-	color: #4db8ad;
-	/* Brighter teal on hover */
-}
-
 /* General Links */
 a {
 	text-decoration: none;
 	color: #76c7c0;
 	/* Teal for links */
+	pointer-events: all;
 }
 
 a:hover {
@@ -76,6 +34,7 @@ body {
 	color: #e0e0e0;
 	font-family: 'Courier New', Courier, monospace;
 	position: relative;
+	pointer-events: none;
 }
 
 
@@ -86,6 +45,7 @@ canvas#game-of-life {
 	width: 100%;
 	height: 100%;
 	z-index: -1;
+	pointer-events: all;
 }
 
 /* 
@@ -167,9 +127,13 @@ p {
 
 /* Headshot Styling */
 .headshot {
-	display: block;
-	margin: 0 auto 20px;
-	/* Center image with spacing */
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid #76c7c0;
+	/* Subtle dark border to match theme */
+	pointer-events: all;
 }
 
 
@@ -177,8 +141,8 @@ p {
 	margin-bottom: 20px;
 	display: inline-flex;
 	align-items: center;
-	background-color: #1e1e1e;
-	border: 1px solid #333;
+	background-color: #000000;
+	border: 2px solid #76c7c0;
 	padding: 5px 10px;
 	border-radius: 6px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -188,10 +152,13 @@ p {
 	position: relative;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+	pointer-events: all;
+	font-weight: bold;
 }
 
 .email-box:hover {
-	background-color: #333;
+	background-color: #4db8ad;
+	color: #000000;
 }
 
 .email-link {
@@ -234,11 +201,13 @@ p {
 	/* Wrap logos to next line if needed */
 	gap: 15px;
 	/* Even spacing */
+	pointer-events: all;
 }
 
 .logo {
 	width: 40px;
 	height: auto;
+	pointer-events: all;
 }
 
 .logo:hover {
