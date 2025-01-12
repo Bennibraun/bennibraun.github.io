@@ -43,7 +43,6 @@
 
 /* General Links */
 a {
-	display: inline-block;
 	text-decoration: none;
 	color: #76c7c0;
 	/* Teal for links */
@@ -60,9 +59,10 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+	min-width: 100%;
+	min-height: 100%;
+	/* overflow-x: hidden; */
+	/* overflow: hidden; */
 }
 
 body {
@@ -70,7 +70,8 @@ body {
 	line-height: 1.6;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	align-items: center;
+	/* Align content horizontally instead */
 	background-color: #000000;
 	color: #e0e0e0;
 	font-family: 'Courier New', Courier, monospace;
@@ -153,9 +154,8 @@ p {
 	width: 30%;
 	padding: 20px;
 	box-sizing: border-box;
-	/* border-right: 1px solid #333; */
-	/* Subtle divider line */
 	text-align: center;
+	/* Add margin to the top */
 }
 
 /* Right Section (70%) */
@@ -266,6 +266,7 @@ p {
 .right-section ul {
 	list-style-type: disc;
 	padding-left: 20px;
+	margin: 10px 0;
 }
 
 .right-section p {

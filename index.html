@@ -64,8 +64,10 @@
 						<h3>The Olm Lab <a class="link" href="https://www.colorado.edu/lab/olm/" target="_blank">↗</a>
 						</h3>
 						<p>
-							<!-- Add content about The Olm Lab here -->
-							Description of the work done in The Olm Lab.
+							With <a href="https://github.com/MrOlm/"><u>Matt Olm</u></a>'s guidance, I developed <a
+								href="https://github.com/Bennibraun/bifidotyper"><u>Bifidotyper</u></a>, a small
+							bioinformatics tool to help researchers investigate Bifidobacteria in stool sequencing
+							samples.
 						</p>
 					</section>
 
@@ -73,8 +75,9 @@
 						<h3>The Layer Lab <a class="link" href="https://ryanlayerlab.github.io/layerlab/"
 								target="_blank">↗</a></h3>
 						<p>
-							<!-- Add content about The Layer Lab here -->
-							Description of the work done in The Layer Lab.
+							In <a href="https://github.com/ryanlayer"><u>Ryan Layer</u></a>'s lab, I experimented with
+							genome assemblies from long-read sequencing data, demonstrating the potential for
+							reference-free structural variant analyses.
 						</p>
 					</section>
 
@@ -82,16 +85,28 @@
 						<h3>The Tothova Lab <a class="link" href="https://tothovalab.dana-farber.org/"
 								target="_blank">↗</a></h3>
 						<p>
-							<!-- Add content about The Tothova Lab here -->
-							Description of the work done in The Tothova Lab.
+							I served as the Associate Computational Biologist in Zuzana Tothova's lab at the <a
+								href="https://en.wikipedia.org/wiki/Dana%E2%80%93Farber_Cancer_Institute"><u>Dana-Farber
+									Cancer Institute</u></a> for 2 years. During this time, I handled a wide variety of
+							functional sequencing projects investigating <a
+								href="https://en.wikipedia.org/wiki/Cohesin"><u>cohesin</u></a> mutations in cancer.
+							Several publications related to this work are available:
 						</p>
+						<ul>
+							<li><a href="https://doi.org/10.1038/s41375-024-02347-y">
+									Subunit-specific analysis of
+									cohesin-mutant myeloid malignancies reveals distinct ontogeny and outcomes
+								</a></li>
+							<li><a href="https://doi.org/10.1182/blood-2023-190327">STAG2 loss Induces HSC Programs By
+									Modulating Accessibility of AP-1 Bound Enhancers</a></li>
+						</ul>
 					</section>
 				</section>
 		</div>
 	</div>
 
 	<div class="footer-container">
-		<span><a href="" target="_blank">This Website's Code</a> • <a
+		<span><a href="https://github.com/Bennibraun/bennibraun.github.io" target="_blank">This Website's Code</a> • <a
 				href="https://en.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Conway's Game of
 				Life</a></span>
 	</div>
@@ -119,8 +134,8 @@
 		const ctx = canvas.getContext('2d');
 
 		function resizeCanvas() {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
+			canvas.width = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
+			canvas.height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
 		}
 
 		window.addEventListener('resize', resizeCanvas);
