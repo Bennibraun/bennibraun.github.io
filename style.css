@@ -1,0 +1,362 @@
+/* Headshot Styling */
+.headshot {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid #555;
+	/* Subtle dark border to match theme */
+}
+
+/* Email Box Styling */
+.email-box {
+	display: inline-flex;
+	align-items: center;
+	background-color: #1e1e1e;
+	/* Darker background for contrast */
+	border: 1px solid #333;
+	/* Subtle dark border */
+	padding: 5px 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+	/* Slightly stronger shadow */
+	font-size: 16px;
+	color: #e0e0e0;
+	/* Light text color for readability */
+	max-width: fit-content;
+}
+
+/* Email Link (Emoji) */
+.email-link {
+	margin-right: 4px;
+	text-decoration: none;
+	font-size: 18px;
+	cursor: pointer;
+	color: #76c7c0;
+	/* Teal for accent */
+}
+
+.email-link:hover {
+	color: #4db8ad;
+	/* Brighter teal on hover */
+}
+
+/* General Links */
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: #76c7c0;
+	/* Teal for links */
+}
+
+a:hover {
+	color: #4db8ad;
+	/* Brighter teal on hover */
+}
+
+
+/* General Layout */
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	font-size: 16px;
+	line-height: 1.6;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #000000;
+	color: #e0e0e0;
+	font-family: 'Courier New', Courier, monospace;
+	position: relative;
+}
+
+
+canvas#game-of-life {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+/* 
+@keyframes pan-background {
+	0% {
+		background-position: 50% 0%;
+	}
+
+	100% {
+		background-position: 50% 100%;
+	}
+} */
+
+.jersey-15-regular {
+	font-family: "Jersey 15", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.montserrat-regular {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 200;
+	font-style: normal;
+}
+
+/* Optional Typography for Headings */
+h1,
+h2,
+h3 {
+	color: #ffffff;
+	/* Bright white headings */
+	margin-bottom: 10px;
+}
+
+p {
+	margin: 10px 0;
+}
+
+/* Smooth Transitions for Theme */
+* {
+	transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Container for Layout */
+.container {
+	display: flex;
+	flex: 1;
+	width: 100%;
+	max-width: 1200px;
+	/* Optional max-width for larger screens */
+	margin: 0 auto;
+	padding-top: 50px
+}
+
+.footer-container {
+	width: 100%;
+	text-align: center;
+	padding: 20px 0;
+	font-style: italic;
+}
+
+/* Left Section (30%) */
+.left-section {
+	width: 30%;
+	padding: 20px;
+	box-sizing: border-box;
+	/* border-right: 1px solid #333; */
+	/* Subtle divider line */
+	text-align: center;
+}
+
+/* Right Section (70%) */
+.right-section {
+	width: 70%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+/* Headshot Styling */
+.headshot {
+	display: block;
+	margin: 0 auto 20px;
+	/* Center image with spacing */
+}
+
+
+.email-box {
+	margin-bottom: 20px;
+	display: inline-flex;
+	align-items: center;
+	background-color: #1e1e1e;
+	border: 1px solid #333;
+	padding: 5px 10px;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+	font-size: 16px;
+	color: #e0e0e0;
+	max-width: fit-content;
+	position: relative;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.email-box:hover {
+	background-color: #333;
+}
+
+.email-link {
+	margin-right: 4px;
+	text-decoration: none;
+	font-size: 18px;
+	color: #76c7c0;
+}
+
+.email-link:hover {
+	color: #4db8ad;
+}
+
+.copied-popup {
+	display: none;
+	position: absolute;
+	background-color: #4db8ad;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-radius: 4px;
+	top: 100%;
+	/* Position below the email box */
+	left: 50%;
+	/* Center horizontally */
+	transform: translateX(-50%);
+	/* Adjust to center */
+	font-size: 12px;
+	z-index: 10;
+	white-space: nowrap;
+	/* Prevent text wrapping */
+}
+
+
+
+/* Logos Section */
+.logos {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	/* Wrap logos to next line if needed */
+	gap: 15px;
+	/* Even spacing */
+}
+
+.logo {
+	width: 40px;
+	height: auto;
+}
+
+.logo:hover {
+	transform: scale(1.1);
+	filter: brightness(1);
+	/* Brighten on hover */
+	cursor: pointer;
+}
+
+.link:hover {
+	transform: scale(1.2);
+	filter: brightness(1);
+	/* Brighten on hover */
+	cursor: pointer;
+
+}
+
+/* Right Section Styling */
+.right-section h1,
+.right-section h2 {
+	color: #ffffff;
+	/* Bright text for headings */
+}
+
+.right-section ul {
+	list-style-type: disc;
+	padding-left: 20px;
+}
+
+.right-section p {
+	margin: 10px 0;
+}
+
+/* Header Styling */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #ffffff;
+	/* Bright white text */
+	margin-bottom: 10px;
+	font-family: 'Montserrat', Arial, sans-serif;
+	/* Consistent font */
+	font-weight: 700;
+	/* Bold text */
+	/* text-transform: uppercase; */
+	/* Uppercase text for emphasis */
+	letter-spacing: 1px;
+	/* Slightly increased letter spacing */
+}
+
+h1 {
+	font-size: 2.5em;
+	/* Larger font size */
+	border-bottom: 2px solid #76c7c0;
+	/* Teal underline */
+	padding-bottom: 0px;
+	/* Space below text */
+}
+
+h2 {
+	font-size: 2em;
+	/* Slightly smaller than h1 */
+	border-bottom: 2px solid #4db8ad;
+	/* Brighter teal underline */
+	padding-bottom: 8px;
+	/* Space below text */
+}
+
+h3 {
+	font-size: 1.4em;
+	/* Smaller than h2 */
+	color: #76c7c0;
+	/* Teal color */
+}
+
+h4 {
+	font-size: 1.5em;
+	/* Smaller than h3 */
+	color: #4db8ad;
+	/* Brighter teal color */
+}
+
+h5 {
+	font-size: 1.25em;
+	/* Smaller than h4 */
+	color: #76c7c0;
+	/* Teal color */
+}
+
+h6 {
+	font-size: 1em;
+	/* Smallest header size */
+	color: #4db8ad;
+	/* Brighter teal color */
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Courier New', Courier, monospace;
+	/* Other existing styles */
+}
+
+.email-box,
+.email-link,
+.copied-popup,
+.logos,
+.logo,
+.right-section h1,
+.right-section h2,
+.right-section ul {
+	font-family: 'Courier New', Courier, monospace;
+	/* Other existing styles */
+}
