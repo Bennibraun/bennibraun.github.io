@@ -97,16 +97,19 @@ p {
 	flex: 1;
 	width: 100%;
 	max-width: 1200px;
-	/* Optional max-width for larger screens */
 	margin: 0 auto;
-	padding-top: 50px
+	padding-top: 50px;
+	flex-direction: row;
+	/* Explicitly set for clarity */
 }
 
 .footer-container {
 	width: 100%;
 	text-align: center;
-	padding: 20px 0;
-	font-style: italic;
+	padding: 15px 0;
+	/* Slightly less padding */
+	font-size: 0.9em;
+	/* Smaller text */
 }
 
 /* Left Section (30%) */
@@ -115,7 +118,6 @@ p {
 	padding: 20px;
 	box-sizing: border-box;
 	text-align: center;
-	/* Add margin to the top */
 }
 
 /* Right Section (70%) */
@@ -329,4 +331,72 @@ h6 {
 .right-section ul {
 	font-family: 'Courier New', Courier, monospace;
 	/* Other existing styles */
+}
+
+/* Media Query for Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+	.container {
+		flex-direction: column;
+		/* Stack sections vertically */
+		padding-top: 20px;
+		/* Reduce top padding */
+	}
+
+	.left-section {
+		width: 100%;
+		/* Full width on mobile */
+		padding: 10px;
+		/* Reduce padding */
+	}
+
+	.right-section {
+		width: 100%;
+		/* Full width on mobile */
+		padding: 10px;
+		/* Reduce padding */
+	}
+
+	/* Headshot Styling */
+	.headshot {
+		width: 100px;
+		/* Smaller headshot on mobile */
+		height: 100px;
+	}
+
+	/* Logos Section */
+	.logo {
+		width: 30px;
+		/* Smaller logos on mobile */
+	}
+
+	/* Email Box */
+	.email-box {
+		font-size: 14px;
+		/* Slightly smaller text */
+		padding: 4px 8px;
+		/* Adjust padding */
+		max-width: 90%;
+		/* Prevent overflow */
+	}
+
+	/* Typography Adjustments */
+	h1 {
+		font-size: 1.8em;
+		/* Smaller h1 */
+	}
+
+	h2 {
+		font-size: 1.5em;
+		/* Smaller h2 */
+	}
+
+	h3 {
+		font-size: 1.2em;
+		/* Smaller h3 */
+	}
+
+	body {
+		font-size: 14px;
+		/* Base font size for mobile */
+	}
 }

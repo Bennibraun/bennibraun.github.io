@@ -86,6 +86,7 @@
 						</p>
 					</section>
 
+
 					<section id="tothova-lab">
 						<h3>The Tothova Lab <a class="link" href="https://tothovalab.dana-farber.org/"
 								target="_blank">↗</a></h3>
@@ -196,6 +197,20 @@
 
 		canvas.addEventListener('mouseout', function () {
 			isMouseOnCanvas = false;
+		});
+
+		// Add touch event for mobile
+		canvas.addEventListener('touchmove', function (event) {
+			event.preventDefault(); // Prevent scrolling
+			const rect = canvas.getBoundingClientRect();
+			const touch = event.touches[0];
+			mouseX = touch.clientX - rect.left;
+			mouseY = touch.clientY - rect.top;
+			isMouseOnCanvas = true;
+
+			const col = Math.floor(mouseX / resolution);
+			const row = Math.floor(mouseY / resolution);
+			grid[col][row] = 1; // Activate cell on touch
 		});
 
 		function nextGen(grid) {
