@@ -104,7 +104,8 @@ p {
 	margin: 0 auto;
 	padding-top: 50px;
 	flex-direction: row;
-	/* Explicitly set for clarity */
+	position: relative;
+	/* Make container relative for absolute sidebar */
 }
 
 .footer-container {
@@ -125,10 +126,10 @@ p {
 	padding: 20px;
 	box-sizing: border-box;
 	text-align: center;
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
-	height: 100vh;
+	height: 100%;
 	overflow-y: auto;
 	z-index: 1;
 	/* No background, no border */
@@ -139,6 +140,7 @@ p {
 	margin-left: 320px;
 	padding: 20px;
 	box-sizing: border-box;
+	width: calc(100% - 320px);
 }
 
 /* Headshot Styling */
@@ -354,27 +356,28 @@ h6 {
 		/* Stack sections vertically */
 		padding-top: 20px;
 		/* Reduce top padding */
+		position: static;
 	}
 
-		.left-section {
-			position: static;
-			width: 100%;
-			min-width: unset;
-			max-width: unset;
-			height: auto;
-			padding: 10px;
-			/* Reduce padding */
-			z-index: unset;
-			overflow-y: visible;
-		}
+	.left-section {
+		position: static;
+		width: 100%;
+		min-width: unset;
+		max-width: unset;
+		height: auto;
+		padding: 10px;
+		/* Reduce padding */
+		z-index: unset;
+		overflow-y: visible;
+	}
 
-		.right-section {
-			width: 100%;
-			margin-left: 0;
-			/* Full width on mobile */
-			padding: 10px;
-			/* Reduce padding */
-		}
+	.right-section {
+		width: 100%;
+		margin-left: 0;
+		/* Full width on mobile */
+		padding: 10px;
+		/* Reduce padding */
+	}
 
 	/* Headshot Styling */
 	.headshot {
