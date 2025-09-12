@@ -19,8 +19,11 @@ body {
 	padding: 0;
 	min-width: 100%;
 	min-height: 100%;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 	/* overflow: hidden; */
+}
+html {
+	overflow-x: hidden;
 }
 
 body {
@@ -34,18 +37,19 @@ body {
 	color: #e0e0e0;
 	font-family: 'Courier New', Courier, monospace;
 	position: relative;
-	pointer-events: none;
 }
 
 
 canvas#game-of-life {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 100vw;
+	min-height: 100vh;
+	width: 100vw;
+	height: 100vh;
 	z-index: -1;
-	pointer-events: all;
 }
 
 /* 
@@ -112,17 +116,27 @@ p {
 	/* Smaller text */
 }
 
-/* Left Section (30%) */
+
+
 .left-section {
-	width: 30%;
+	width: 320px;
+	min-width: 260px;
+	max-width: 340px;
 	padding: 20px;
 	box-sizing: border-box;
 	text-align: center;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	overflow-y: auto;
+	z-index: 1;
+	/* No background, no border */
 }
 
-/* Right Section (70%) */
+
 .right-section {
-	width: 70%;
+	margin-left: 320px;
 	padding: 20px;
 	box-sizing: border-box;
 }
@@ -333,8 +347,8 @@ h6 {
 	/* Other existing styles */
 }
 
-/* Media Query for Mobile (max-width: 768px) */
-@media (max-width: 768px) {
+/* Media Query for Mobile (max-width: 1000px) */
+@media (max-width: 1000px) {
 	.container {
 		flex-direction: column;
 		/* Stack sections vertically */
@@ -342,19 +356,25 @@ h6 {
 		/* Reduce top padding */
 	}
 
-	.left-section {
-		width: 100%;
-		/* Full width on mobile */
-		padding: 10px;
-		/* Reduce padding */
-	}
+		.left-section {
+			position: static;
+			width: 100%;
+			min-width: unset;
+			max-width: unset;
+			height: auto;
+			padding: 10px;
+			/* Reduce padding */
+			z-index: unset;
+			overflow-y: visible;
+		}
 
-	.right-section {
-		width: 100%;
-		/* Full width on mobile */
-		padding: 10px;
-		/* Reduce padding */
-	}
+		.right-section {
+			width: 100%;
+			margin-left: 0;
+			/* Full width on mobile */
+			padding: 10px;
+			/* Reduce padding */
+		}
 
 	/* Headshot Styling */
 	.headshot {
@@ -399,4 +419,18 @@ h6 {
 		font-size: 14px;
 		/* Base font size for mobile */
 	}
+}
+
+.inline-logo-link {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+  border-radius: 4px;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.inline-logo {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-bottom: 2px;
 }
